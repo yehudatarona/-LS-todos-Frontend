@@ -1,0 +1,20 @@
+
+const submit =(title)=>{
+  let bodyData = {
+    id: Math.random(300*39).toFixed(2),
+    task_name: "todos shopping list",
+    items: [],
+    created_at: dateFormat,
+    updated_at:dateFormat
+  }
+}
+
+const addTask=()=>{
+  let item={
+    id: Math.random(300*39).toFixed(2),
+    item_name:"do homework",
+    completed:false,
+    created_at: dateFormat,
+    updated_at:dateFormat
+  }
+}

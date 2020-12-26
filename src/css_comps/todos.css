@@ -1,0 +1,17 @@
+nav{
+    min-height: 60px;
+    /* background-color: rgb(107, 223, 238); */
+    color:white;
+}
+
+nav a {
+  color:silver;
+  padding: 20px;
+  font-size: 22px;
+  text-decoration: none;
+  text-decoration-style: none;
+}
+nav a:hover {
+  background-color:black;
+  color: green;
+}
