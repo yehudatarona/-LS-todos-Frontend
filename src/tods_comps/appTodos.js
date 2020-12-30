@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoTitle from './todoTitle';
-import TaskInput from './taskInput';
+import CardItem from './cardItem';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from './nav';
 import ToDoList from './toDoList';
@@ -15,12 +15,9 @@ function AppTodos(props) {
       <Provider store={myStore}>
         <Router>
           <Nav />
-          {/* <TaskInput /> */}
-          {/* <ToDoList /> */}
-          {/* <ItemsList/> */}
           <Route exact path={"/"} component={ToDoList} />
           <Route exact path={"/newTodo/"} component={TodoTitle} />
-          <Route exact path={"/addItems/"} component={TaskInput} />
+          <Route exact path={"/addItems/:id_item"} component={CardItem} />
         </Router>
       </Provider>
 

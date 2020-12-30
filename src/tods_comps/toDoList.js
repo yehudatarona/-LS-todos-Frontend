@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 // import Moment from 'moment';
 import ToDoItem from './toDoItem';
 import { useSelector } from 'react-redux';
+import TodoCard from './todoCrad';
+import "../css_comps/todos.css"
 // import {useSelector,useDispatch} from 'react-redux'
 function ToDoList(props) {
   // let [formatDate, setFormatDtae] = useState(Moment(new Date()).format('DD/MM/YYYY'));
@@ -9,15 +11,17 @@ function ToDoList(props) {
   //   { name: "Do homework", date: formatDate },
   //   { name: "Go to work", date: formatDate }
   // ])
-  let tasks_ar = useSelector((myStore)=>myStore.tasks_ar)
+  let todosList_ar = useSelector((myStore)=>myStore.todosList_ar)
   return (
-    <div>
-      <h2>Task List 1</h2>
-      {/* <h2>{tasks_ar.task_name}</h2> */}
-      <div className="row" >
-        {tasks_ar.map(item => {
-          return (<ToDoItem key={item.id} item={item} />)
+    <div className="mt-4 ">
+      <h1 className="display-3 text-center text-primary p-2">Todos Notes</h1>
+      <div className="d-flex flex-wrap justify-content-between align-items-center" >
+        {/* <div className="col-lg-6"> */}
+
+        {todosList_ar.map((item,index) => {
+          return (<TodoCard key={item.id} index={index} item={item}/>)
         })}
+        {/* </div> */}
       </div>
     </div>
 

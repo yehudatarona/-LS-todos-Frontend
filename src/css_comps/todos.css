@@ -15,3 +15,31 @@ nav a:hover {
   background-color:black;
   color: green;
 }
+
+.list{
+  font-size: 25px;
+  /* background-color: lightblue; */
+  background-color:lightskyblue;
+  
+  min-width: 530px;
+  border-radius: 25px;
+}
+.list:hover{
+  
+  background-color:lightsalmon;
+  /* background-color:lightgoldenrodyellow; */
+ 
+  
+}
+
+.items{
+  min-width: 450px;
+  font-size: 20px;
+  background-color: whitesmoke;
+  border: 1px solid skyblue !important;
+}
+
+.items:hover{
+  background-color:salmon;
+  color: white;
+}
