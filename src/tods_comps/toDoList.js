@@ -13,7 +13,7 @@ function ToDoList(props) {
   // ])
   let todosList_ar = useSelector((myStore)=>myStore.todosList_ar)
   return (
-    <div className="mt-4 ">
+    <div className="mt-4">
       <h1 className="display-3 text-center text-primary p-2">Todos Notes</h1>
       <div className="d-flex flex-wrap justify-content-between align-items-center" >
         {/* <div className="col-lg-6"> */}

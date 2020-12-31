@@ -2,7 +2,7 @@
 // let dateFormat = Moment(new Date()).format('DD/MM/YYYY');
 const initState = {
   item: {
-    id: Math.random(300 * 39).toFixed(2),
+    id: Math.random((300 * 39)*10).toFixed(2),
     item_name: "homework",
     created_at: "26/12/2020",
     completed: false,
@@ -54,13 +54,13 @@ const initState = {
           id: Math.random(300 * 39).toFixed(2),
           item_name: "go to trip arond the world",
           created_at: "26/12/2020",
-          completed: true,
+          completed: Boolean,
         },
         {
           id: Math.random(300 * 39).toFixed(2),
           item_name: "lensting to music list",
           created_at: "26/12/2020",
-          completed: false,
+          completed: Boolean(false),
         }],
       created_at: "26/12/2020",
       updated_at: "27/12/2020"
@@ -72,6 +72,7 @@ const initState = {
 // let carditem = useSelector((myStore) => myStore.todosList_ar)
 export const toDoReducer = (state = initState, action) => {
   if (action.type === "addTodoCrad") {
+    // let temp_ar = state.todosList_ar;
     let temp_ar = [...state.todosList_ar];
     temp_ar.push(action.todoCrad);
     state.counterId++;
@@ -94,7 +95,8 @@ export const toDoReducer = (state = initState, action) => {
       completed: action.ItemBody.created_at
     }
     console.log(state.todosList_ar);
-    let tempList = state.todosList_ar;
+    // let tempList = state.todosList_ar;
+    let tempList = [...state.todosList_ar];
     //debugger
     
     tempList[index].items.push(itemObj)
@@ -102,9 +104,24 @@ export const toDoReducer = (state = initState, action) => {
     return { ...state, todosList_ar: tempList }
   
     }
+
+    else if(action.type === "delTask"){
+      let temp_ar = [...state.todosList_ar];
+      temp_ar.map(card=>{
+        if(card.id == action.itemDelete.idCard){
+          let deleteOneItem = card.items.filter(item=>{
+            return item.id != action.itemDelete.itemId;
+          })
+        }
+      })
+       
+      return {...state , todosList_ar:temp_ar}
+    }
+
+
     else if (action.type === "changeCompleted") {
-      let temp_ar=state.todosList_ar;
-      temp_ar[action.itemChack.id_card]=action.itemChack.item
+      let temp_ar = [...state.todosList_ar];
+      temp_ar[action.itemChack.id_card] = action.itemChack.item
       return { ...state, todosList_ar: temp_ar }
     }
   

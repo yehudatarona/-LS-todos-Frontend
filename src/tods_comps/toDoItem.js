@@ -7,9 +7,9 @@ function ToDoItem(props) {
   let dateFormat = Moment(new Date()).format('DD/MM/YYYY');
   let [item,setItem] = useState(props.item.items)
 
-  useEffect (()=>{
-    setItem(props.item.items)
-  },[props.item.items.length])
+  // useEffect (()=>{
+  //   setItem(props.item.items)
+  // },[props.item.items.length])
 
   let dispatch = useDispatch();
   const addTask = () => {
@@ -23,11 +23,12 @@ function ToDoItem(props) {
 
    dispatch({ type: "addItem", ItemBody: tempItem })
     console.log("item123->",item);
-    setItem([])
+    userInput.current.value ="";
+    // setItem([])
   }
 
   const checkedItem=(val)=>{
-    console.log("item",item);
+  console.log("item",item);
    console.log("val =>",val);
    console.log("item[val].completed->",!item[val].completed);
    item[val].completed = !item[val].completed;
@@ -37,15 +38,19 @@ function ToDoItem(props) {
    }
    dispatch({ type: "changeCompleted", itemChack:  obj })
    //setItem(item);
-    
   }
 
 
-    // const delTask = (_id) => {
-    //   let temp = userDate.filter(item => item.id !== _id)
-    //   setUserDate(temp);
-    //   saveTolocal(temp)
-    // }
+    const delTask = (itemId) => {
+      alert(itemId.id)
+      console.log("delTask",itemId);
+      let obj={
+        itemId:itemId.id,
+        idCard:props.index
+      }
+      dispatch({ type: "delTask", itemDelete:obj })
+    
+    }
 
     return (
       <div className="p-2 ">
@@ -60,12 +65,13 @@ function ToDoItem(props) {
               <div>
                 <input id={val.id} type="checkbox" name="isDone" onClick={()=>{
                   checkedItem(i)
-                }} className="mr-1" checked={val.completed} />
+                }} className="mr-1"  />
                 <label htmlFor={val.id}>{val.item_name}</label>
               </div>
               <div>{val.created_at}</div>
               {/* <div> */}
-              <button onClick={() => { alert(val.id) }} className="btn btn-outline-secondary">X</button>
+              {/* <button onClick={() => { alert(val.id) }} className="btn btn-dnager">X</button> */}
+              <button onClick={()=>{delTask(val)}} className="btn btn-danger">X</button>
               {/* </div> */}
             </div>)
 
