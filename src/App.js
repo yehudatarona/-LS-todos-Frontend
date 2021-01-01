@@ -6,7 +6,7 @@ import AppTodos from './tods_comps/appTodos';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container-fluid">
      <AppTodos/>
     </div>
   );
