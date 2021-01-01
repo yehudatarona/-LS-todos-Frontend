@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from "react-router-dom"
+import { Link} from "react-router-dom"
 import "../css_comps/todos.css"
 function Nav(props) {
     return (
@@ -11,5 +11,4 @@ function Nav(props) {
         </nav>
     )
 }
-
 export default Nav
