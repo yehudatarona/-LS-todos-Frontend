@@ -15,7 +15,8 @@ function ToDoList(props) {
   }, [])
 
   const todosList = () => {
-    let url = "http://localhost:3000/todos";
+    // let url = "http://localhost:3000/todos";
+    let url = "https://ls-task-todos.herokuapp.com/todos";
     doApiGet(url)
       .then(data => {
         // console.log("data for DB", data);

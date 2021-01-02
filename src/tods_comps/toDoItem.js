@@ -13,7 +13,8 @@ function ToDoItem(props) {
       alert("Please item name");
     }
     else {
-      let url = `http://localhost:3000/todos/${props.cardTodo._id}/addItem/`
+      // let url = `http://localhost:3000/todos/${props.cardTodo._id}/addItem/`
+      let url = `https://ls-task-todos.herokuapp.com/todos/${props.cardTodo._id}/addItem/`
       let body = {
         item_name: userInput.current.value
       }
@@ -29,7 +30,8 @@ function ToDoItem(props) {
   }
 
   const checkedItem = (_val, _itemIndex) => {
-    let url = `http://localhost:3000/todos/${props.cardTodo._id}/updateStatus/${props.cardTodo.items[_itemIndex]._id}`;
+    // let url = `http://localhost:3000/todos/${props.cardTodo._id}/updateStatus/${props.cardTodo.items[_itemIndex]._id}`;
+    let url = `https://ls-task-todos.herokuapp.com/todos/${props.cardTodo._id}/updateStatus/${props.cardTodo.items[_itemIndex]._id}`;
     let body = {
       completed: !_val
     }
@@ -43,7 +45,7 @@ function ToDoItem(props) {
   }
 
   const deleteItem = (_itemIndex) => {
-    let url = `http://localhost:3000/todos/${props.cardTodo._id}/deleteItem/${props.cardTodo.items[_itemIndex]._id}`;
+    let url = `https://ls-task-todos.herokuapp.com/todos/${props.cardTodo._id}/deleteItem/${props.cardTodo.items[_itemIndex]._id}`;
     doApiPost(url)
       .then(() => {
         
@@ -53,7 +55,7 @@ function ToDoItem(props) {
   }
 
   const deleteTodoCard = () => {
-    let url = `http://localhost:3000/todos/deleteTodo/${props.cardTodo._id}`;
+    let url = `https://ls-task-todos.herokuapp.com/todos/deleteTodo/${props.cardTodo._id}`;
 
     doApiPost(url)
       .then(() => {

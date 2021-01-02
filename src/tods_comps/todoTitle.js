@@ -14,14 +14,15 @@ function TodoTitle(props) {
       alert("Please enter todo name");
     }
     else {
-      let url = `http://localhost:3000/todos/createTodo`;
+      // let url = `http://localhost:3000/todos/createTodo`;
+      let url = `https://ls-task-todos.herokuapp.com/todos/createTodo`;
       let body = {
         todo_name: todoName.current.value
 
       }
       doApiPost(url, body)
         .then(data => {
-          let url = "http://localhost:3000/todos";
+          let url = "https://ls-task-todos.herokuapp.com/todos";
           doApiGet(url)
             .then(data => {
               console.log("data for DB", data);
