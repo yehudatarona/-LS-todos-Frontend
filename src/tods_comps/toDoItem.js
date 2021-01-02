@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import "../css_comps/todos.css"
 import { doApiPost } from '../services/apiService';
+import Moment from 'moment';
 function ToDoItem(props) {
-
+  // let dateFormat = Moment(new Date()).format('DD/MM/YYYY');
   let userInput = useRef(null);
   let items = props.cardTodo.items
 
@@ -78,12 +79,12 @@ function ToDoItem(props) {
         return (
           <div key={itemIndex} className="d-flex justify-content-between align-items-center p-2 mt-1 items ">
             <div>
-              <input id={val.id} type="checkbox" name="isDone" onChange={() => {
+              <input id={val._id} type="checkbox" name="isDone" onChange={() => {
                 checkedItem(val.completed, itemIndex)
               }} className="mr-1" checked={val.completed} />
-              <label htmlFor={val.id}>{val.item_name}</label>
+              <label htmlFor={val._id}>{val.item_name}</label>
             </div>
-            <div>{val.created_at}</div>
+            <div>{ Moment(val.created_at).format('DD/MM/YYYY')}</div>
             <button onClick={() => { deleteItem(itemIndex) }} className="btn btn-secondary text-danger">X</button>
           </div>)
       })}
