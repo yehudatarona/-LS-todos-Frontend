@@ -1,12 +1,11 @@
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
 import "../css_comps/todos.css"
-import { doApiGet, doApiPost } from '../services/apiService';
+import { doApiPost } from '../services/apiService';
 function ToDoItem(props) {
 
   let userInput = useRef(null);
   let items = props.cardTodo.items
-  let dispatch = useDispatch();
+
 
   const addTask = async () => {
     if (userInput.current.value === "") {

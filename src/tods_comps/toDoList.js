@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import ToDoItem from './toDoItem';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TodoCard from './todoCrad';
 import "../css_comps/todos.css"
@@ -11,7 +10,6 @@ function ToDoList(props) {
 
   useEffect(() => {
     todosList();
-
   }, [])
 
   const todosList = () => {
@@ -20,16 +18,16 @@ function ToDoList(props) {
     doApiGet(url)
       .then(data => {
         // console.log("data for DB", data);
-       dTodoList_ar({ type: "updateList", data: data })
+        dTodoList_ar({ type: "updateList", data: data })
       });
   }
- 
+
 
   return (
     <div className="container mt-4">
       <div className="d-flex flex-wrap justify-content-between " >
         {todosList_ar.map((cardTodo, index) => {
-          return (<TodoCard key={cardTodo._id} indexCard={index} cardTodo={cardTodo} todosList={todosList}/>)
+          return (<TodoCard key={cardTodo._id} indexCard={index} cardTodo={cardTodo} todosList={todosList} />)
         })}
       </div>
     </div>

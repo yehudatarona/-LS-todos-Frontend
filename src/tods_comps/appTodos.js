@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoTitle from './todoTitle';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Nav from './nav';
 import ToDoList from './toDoList';
 import { createStore } from 'redux';
